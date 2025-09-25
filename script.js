@@ -67,6 +67,7 @@ radiosFluide.forEach((radio, index) => {
 
 btn.forEach((button) => {
   button.addEventListener("click", (e) => {
+    clearInterval(interval);
     if (e.target.id === "nextFluide") {
       countFluide++;
       if (countFluide >= images.length) {
@@ -83,3 +84,11 @@ btn.forEach((button) => {
     }
   });
 });
+
+const interval = setInterval(() => {
+  countFluide++;
+  if (countFluide >= images.length) {
+    countFluide = 0;
+  }
+  translateImage(countFluide);
+}, 3000);
